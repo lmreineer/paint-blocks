@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.all-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main {
+    margin-left: 15rem;
+}
+
+button {
+    font-family: 'Varela', sans-serif;
+    width: 9rem;
+    height: 3.5rem;
+    border: none;
+    outline: transparent;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: #c5c6d0;
+    border-radius: 0.8rem;
+    color: #373737;
+    cursor: pointer;
+}
+
+button:hover {
+    box-shadow: #373737 0px 1px 1px, #373737 0px 0px 0px 1px;    
+    transform: translateY(-0.1.5em);
+    transition: 0.1s;
+}
+
+#colorPicker {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin-bottom: 1.5rem;
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+#colorPicker::-webkit-color-swatch {
+    border-radius: 100%;
+    border: 3px solid #c5c6d0;
+}
+
+#colorPicker:hover {
+    transform: translateY(-0.1em);
+    transition: 0.1s;
+}
+
+input {
+    cursor: pointer;
+}
+
+#rangeInput {
+    margin-top: 3rem;
+    width: 8.8rem;
+    -webkit-appearance: none;
+    height: 5px;
+    background: #c5c6d0;
+    border-radius: 2rem;
+}
+
+#rangeInput::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #373737;
+    border-radius: 50%;
+}
