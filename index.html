@@ -5,21 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paint the Squares</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
 <body>
     <div class="all-container">
         <div class="left-container">
-            <input id="colorPicker" type="color">W
+            <p id="subText">current color</p>
+            <input id="colorPicker" type="color">
             <button id="colorMode">color mode</button>
             <button id="rainbowMode">rainbow mode</button>
-            <button id="eraseMode">erase</button>
-            <button id="clearMode">clear</button>
+            <button id="toggleSquares">toggle squares</button>
             <input id="rangeInput" type="range" min="8" max="128">
         </div>
-        <div class="right-container">
+
+        <div class="middle-container">
             <div id="main"></div>
+        </div>
+
+        <div class="right-container">
+            <button id="eraseMode">erase</button>
+            <button id="clearMode">clear</button>
         </div>
     </div>
 </body>
