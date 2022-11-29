@@ -28,8 +28,8 @@ function changeSize(size) {
     
     for(let i = 0; i < size * size; i++) {
         const grids = document.createElement('div');
-        grids.style.border = '1px solid gainsboro'
         gridContainer.appendChild(grids);
+        toggleBorder();
     }
 }
 
@@ -37,8 +37,8 @@ const gridContainer = document.getElementById('main');
 const colorPicker = document.getElementById('colorPicker');
 const colorMode = document.getElementById('colorMode');
 const randomMode = document.getElementById('randomMode');
-const squares = document.getElementById('toggleSquares');
 const eraseMode = document.getElementById('eraseMode');
+const squares = document.getElementById('toggleSquares');
 const clearMode = document.getElementById('clearMode');
 
 let mouseIsDown = false;
@@ -62,18 +62,22 @@ colorMode.addEventListener('click', () => {
     randomMode.classList.remove('activate');
     colorMode.style.filter = 'invert(100%)'
     removeFilter(randomMode); removeFilter(eraseMode);
-})
+});
 
 randomMode.addEventListener('click', (e) => {
     randomMode.classList.add('activate');
     randomMode.style.filter = 'invert(100%)'
     removeFilter(colorMode); removeFilter(eraseMode);
-})  
+});
 
 eraseMode.addEventListener('click', () => {
     randomMode.classList.remove('activate');
     eraseMode.style.filter = 'invert(100%)'
     removeFilter(colorMode); removeFilter(randomMode);
+});
+
+squares.addEventListener('click', () => {
+    squares.classList.toggle('toggle');
 })
 
 function activateColor(e) {
@@ -86,14 +90,20 @@ function activateColor(e) {
         e.target.style.backgroundColor = colorPicker.value;
         e.preventDefault();
     }
-}
+};
 
 function randomColor() {
     return Math.floor(Math.random() * 16777215).toString(16);
-}
+};
 
 function removeFilter(mode) {
     mode.style.removeProperty('filter');
+};
+
+function toggleBorder() {
+    if(squares.matches('.toggle')) {
+        console.log('s')
+    }
 }
 
 window.onload = changeSize(64);
