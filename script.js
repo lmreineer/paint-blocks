@@ -23,34 +23,77 @@ selection.forEach(x => {
 //Drop down section above
 
 function changeSize(size) {
-    const gridContainer = document.getElementById('main');
     gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`
     gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`
     
     for(let i = 0; i < size * size; i++) {
         const grids = document.createElement('div');
-        grids.classList.add('color')
         grids.style.border = '1px solid gainsboro'
         gridContainer.appendChild(grids);
     }
 }
 
+const gridContainer = document.getElementById('main');
 const colorPicker = document.getElementById('colorPicker');
 const colorMode = document.getElementById('colorMode');
-const rainbowMode = document.getElementById('rainbowMode');
+const randomMode = document.getElementById('randomMode');
 const squares = document.getElementById('toggleSquares');
 const eraseMode = document.getElementById('eraseMode');
 const clearMode = document.getElementById('clearMode');
 
-colorMode.style.filter = 'invert(100%)'
 let mouseIsDown = false;
-
-colorPicker.addEventListener('input', (e) => {
-    e.target.style.backgroundColor = colorPicker.value;
-    colorPicker.style.backgroundColor = 'transparent'
+gridContainer.addEventListener('mousedown', (e) => {
+    mouseIsDown = true;
+    activateColor(e);
 });
 
-function toggleColor() {
+gridContainer.addEventListener('mouseup', () => {
+    mouseIsDown = false;
+});
+
+gridContainer.addEventListener('mouseover', (e) => {
+    if(mouseIsDown) {
+    activateColor(e);
+    }
+});
+
+colorMode.style.filter = 'invert(100%)'
+colorMode.addEventListener('click', () => {
+    randomMode.classList.remove('activate');
+    colorMode.style.filter = 'invert(100%)'
+    removeFilter(randomMode); removeFilter(eraseMode);
+})
+
+randomMode.addEventListener('click', (e) => {
+    randomMode.classList.add('activate');
+    randomMode.style.filter = 'invert(100%)'
+    removeFilter(colorMode); removeFilter(eraseMode);
+})  
+
+eraseMode.addEventListener('click', () => {
+    randomMode.classList.remove('activate');
+    eraseMode.style.filter = 'invert(100%)'
+    removeFilter(colorMode); removeFilter(randomMode);
+})
+
+function activateColor(e) {
+    if(randomMode.classList.contains('activate')) {
+        const color = randomColor();
+        e.target.style.backgroundColor = '#' + color;
+        e.preventDefault();
+    }
+    else if(!randomMode.classList.contains('activate')) {
+        e.target.style.backgroundColor = colorPicker.value;
+        e.preventDefault();
+    }
+}
+
+function randomColor() {
+    return Math.floor(Math.random() * 16777215).toString(16);
+}
+
+function removeFilter(mode) {
+    mode.style.removeProperty('filter');
 }
 
 window.onload = changeSize(64);
