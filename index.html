@@ -12,19 +12,34 @@
 <body>
     <div class="all-container">
         <div class="left-container">
-            <p id="subText">current color</p>
-            <input id="colorPicker" type="color">
+            <div class="top-left-container">
+                <p id="subText">current color</p>
+                <input id="colorPicker" type="color">
+            </div>
             <button id="colorMode">color mode</button>
             <button id="rainbowMode">rainbow mode</button>
             <button id="toggleSquares">toggle squares</button>
-            <input id="rangeInput" type="range" min="8" max="128">
-        </div>
+            <!-- Drop down section below: -->
 
+        </div>
+        
+        <!-- Drop down section above -->
+        
         <div class="middle-container">
             <div id="main"></div>
         </div>
-
+        
         <div class="right-container">
+            <div class="drop-down">
+                <div class="selections-container">
+                    <div class="selection   ">8 x 8</div>
+                    <div class="selection">16 x 16</div>
+                    <div class="selection">32 x 32</div>
+                    <div class="selection">64 x 64</div>
+                    <div class="selection">128 x 128</div>
+                </div>
+                <div class="default" tabindex="0">64 x 64</div>
+            </div>
             <button id="eraseMode">erase</button>
             <button id="clearMode">clear</button>
         </div>

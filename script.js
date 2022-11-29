@@ -1,16 +1,3 @@
-function changeSize(amount) {
-    const gridContainer = document.getElementById('main');
-    gridContainer.style.display = 'grid'
-    gridContainer.style.gridTemplateColumns = `repeat(${amount}, 1fr)`
-    gridContainer.style.gridTemplateRows = `repeat(${amount}, 1fr)`
-
-    for(let i = 0; i < amount * amount; i++) {
-        const grids = document.createElement('div');
-        grids.style.border = '1px solid gainsboro'
-        gridContainer.appendChild(grids);
-    }
-}
-
 
 const colorPicker = document.getElementById('colorPicker');
 const colorMode = document.getElementById('colorMode');
@@ -24,6 +11,68 @@ colorPicker.addEventListener('input', (e) => {
     colorPicker.style.backgroundColor = 'transparent'
 });
 
-console.log(rangeInput.value)
 
-window.onload = (changeSize(rangeInput.value));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Drop down section below:
+const defaultChoice = document.querySelector(".default");
+const selectionsContainer = document.querySelector(".selections-container");
+const selection = document.querySelectorAll(".selection");
+
+defaultChoice.addEventListener("click", () => {
+  selectionsContainer.classList.toggle("active");
+  selectionsContainer.style.visibility = 'visible'
+});
+
+defaultChoice.addEventListener('blur', () => {
+    selectionsContainer.classList.remove('active');
+    selectionsContainer.style.visibility = 'hidden'
+})
+
+selection.forEach(x => {
+    x.addEventListener("click", (e) => {
+        defaultChoice.innerHTML = e.target.textContent;
+        selectionsContainer.classList.remove('active');
+        selectionsContainer.style.visibility = 'hidden'
+    });
+});
+
+//Drop down section above
+
+function changeSize(size) {
+    const gridContainer = document.getElementById('main');
+    gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+    gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`
+
+    for(let i = 0; i < size * size; i++) {
+        const grids = document.createElement('div');
+        grids.style.border = '1px solid gainsboro'
+        gridContainer.appendChild(grids);
+    }
+}
+
+function removeOtherSizes() {
+
+}
+
+
+window.onload = changeSize(64);
