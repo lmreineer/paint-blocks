@@ -22,6 +22,18 @@ selection.forEach(x => {
 });
 //Drop down section above
 
+let lastActive = selection[0];
+selectionsContainer.addEventListener('click', (e) => {
+    const currentSelection = e.target.closest('.selection');
+    if(!currentSelection) return;
+
+    const wasActive = currentSelection.classList.contains('remove-others');
+    
+    lastActive.classList.remove('remove-others');
+    currentSelection.classList.toggle('remove-others', !wasActive);
+    lastActive = currentSelection;
+})
+
 function changeSize(size) {
     gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`
     gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`
@@ -29,9 +41,8 @@ function changeSize(size) {
     for(let i = 0; i < size * size; i++) {
         const grids = document.createElement('div');
         gridContainer.appendChild(grids);
-        toggleBorder();
-    }
-}
+    };
+;}
 
 const gridContainer = document.getElementById('main');
 const colorPicker = document.getElementById('colorPicker');
@@ -40,6 +51,7 @@ const randomMode = document.getElementById('randomMode');
 const eraseMode = document.getElementById('eraseMode');
 const squares = document.getElementById('toggleSquares');
 const clearMode = document.getElementById('clearMode');
+
 
 let mouseIsDown = false;
 gridContainer.addEventListener('mousedown', (e) => {
@@ -76,8 +88,8 @@ eraseMode.addEventListener('click', () => {
     removeFilter(colorMode); removeFilter(randomMode);
 });
 
-squares.addEventListener('click', () => {
-    squares.classList.toggle('toggle');
+squares.addEventListener('click', (e) => {
+    squares.classList.add('toggle');
 })
 
 function activateColor(e) {
@@ -100,10 +112,8 @@ function removeFilter(mode) {
     mode.style.removeProperty('filter');
 };
 
-function toggleBorder() {
-    if(squares.matches('.toggle')) {
-        console.log('s')
-    }
-}
+
+
+
 
 window.onload = changeSize(64);
