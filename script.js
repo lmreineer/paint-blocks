@@ -22,27 +22,19 @@ selection.forEach(x => {
 });
 //Drop down section above
 
-let lastActive = selection[0];
-selectionsContainer.addEventListener('click', (e) => {
-    const currentSelection = e.target.closest('.selection');
-    if(!currentSelection) return;
 
-    const wasActive = currentSelection.classList.contains('remove-others');
-    
-    lastActive.classList.remove('remove-others');
-    currentSelection.classList.toggle('remove-others', !wasActive);
-    lastActive = currentSelection;
-})
+// let lastActive = selection[0];
+// selectionsContainer.addEventListener('click', (e) => {
+//     const currentSelection = e.target.closest('.selection');
+//     if(!currentSelection) return;
 
-function changeSize(size) {
-    gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`
-    gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`
+//     const wasActive = currentSelection.classList.contains('remove-others');
     
-    for(let i = 0; i < size * size; i++) {
-        const grids = document.createElement('div');
-        gridContainer.appendChild(grids);
-    };
-;}
+//     lastActive.classList.remove('remove-others');
+//     currentSelection.classList.toggle('remove-others', !wasActive);
+//     lastActive = currentSelection;
+// });
+
 
 const gridContainer = document.getElementById('main');
 const colorPicker = document.getElementById('colorPicker');
@@ -57,6 +49,7 @@ let mouseIsDown = false;
 gridContainer.addEventListener('mousedown', (e) => {
     mouseIsDown = true;
     activateColor(e);
+    activateErase(e);
 });
 
 gridContainer.addEventListener('mouseup', () => {
@@ -66,39 +59,39 @@ gridContainer.addEventListener('mouseup', () => {
 gridContainer.addEventListener('mouseover', (e) => {
     if(mouseIsDown) {
     activateColor(e);
+    activateErase(e);
     }
 });
 
 colorMode.style.filter = 'invert(100%)'
 colorMode.addEventListener('click', () => {
-    randomMode.classList.remove('activate');
+    randomMode.classList.remove('random-active');
+    eraseMode.classList.remove('erase-active');
     colorMode.style.filter = 'invert(100%)'
     removeFilter(randomMode); removeFilter(eraseMode);
 });
 
 randomMode.addEventListener('click', (e) => {
-    randomMode.classList.add('activate');
+    randomMode.classList.add('random-active');
+    eraseMode.classList.remove('erase-active');
     randomMode.style.filter = 'invert(100%)'
     removeFilter(colorMode); removeFilter(eraseMode);
 });
 
 eraseMode.addEventListener('click', () => {
-    randomMode.classList.remove('activate');
+    randomMode.classList.remove('random-active');
+    eraseMode.classList.add('erase-active');
     eraseMode.style.filter = 'invert(100%)'
     removeFilter(colorMode); removeFilter(randomMode);
 });
 
-squares.addEventListener('click', (e) => {
-    squares.classList.add('toggle');
-})
-
 function activateColor(e) {
-    if(randomMode.classList.contains('activate')) {
+    if(randomMode.classList.contains('random-active')) {
         const color = randomColor();
         e.target.style.backgroundColor = '#' + color;
         e.preventDefault();
     }
-    else if(!randomMode.classList.contains('activate')) {
+    else if(!randomMode.classList.contains('random-active')) {
         e.target.style.backgroundColor = colorPicker.value;
         e.preventDefault();
     }
@@ -108,11 +101,32 @@ function randomColor() {
     return Math.floor(Math.random() * 16777215).toString(16);
 };
 
+function activateErase(e) {
+    if(eraseMode.classList.contains('erase-active')) {
+        e.target.style.backgroundColor = ''
+    }
+    else {
+        return
+    }
+}
+
+
+
 function removeFilter(mode) {
     mode.style.removeProperty('filter');
 };
 
-
+function changeSize(size) {
+    gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+    gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`
+    
+    for(let i = 0; i < size * size; i++) {
+        const grids = document.createElement('div');
+        grids.classList.add('canvas');
+        gridContainer.appendChild(grids);
+    };
+};
+   
 
 
 
