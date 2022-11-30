@@ -42,7 +42,7 @@ body {
 }
 
 #eraseMode {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 #main {
@@ -50,10 +50,6 @@ body {
     box-shadow: #afafaf 0px 10px 36px 0px, #333333 0px 0px 0px 0.25px;
     width: 62rem;
     height: 52rem;
-}
-
-.squares {
-    border: none;
 }
 
 button {
@@ -152,7 +148,6 @@ button:hover {
 .selection,
 .default {
     padding: 0.4rem;
-    cursor: pointer;
 }
 
 .selection:hover {

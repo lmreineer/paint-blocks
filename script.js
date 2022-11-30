@@ -41,7 +41,6 @@ const colorPicker = document.getElementById('colorPicker');
 const colorMode = document.getElementById('colorMode');
 const randomMode = document.getElementById('randomMode');
 const eraseMode = document.getElementById('eraseMode');
-const squares = document.getElementById('toggleSquares');
 const clearMode = document.getElementById('clearMode');
 
 
@@ -58,8 +57,8 @@ gridContainer.addEventListener('mouseup', () => {
 
 gridContainer.addEventListener('mouseover', (e) => {
     if(mouseIsDown) {
-    activateColor(e);
-    activateErase(e);
+        activateColor(e);
+        activateErase(e);
     }
 });
 
@@ -104,30 +103,41 @@ function randomColor() {
 function activateErase(e) {
     if(eraseMode.classList.contains('erase-active')) {
         e.target.style.backgroundColor = ''
+        e.preventDefault();
     }
     else {
-        return
+        return; 
     }
 }
 
-
+function clearCanvas(grids) {
+    grids.style.backgroundColor = ''
+}
 
 function removeFilter(mode) {
     mode.style.removeProperty('filter');
 };
 
 function changeSize(size) {
+    const squares = document.getElementById('toggleSquares');
     gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`
     gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`
     
     for(let i = 0; i < size * size; i++) {
-        const grids = document.createElement('div');
+        const grids = document.createElement('div')
         grids.classList.add('canvas');
         gridContainer.appendChild(grids);
+
+        clearMode.addEventListener('click', () => {
+            clearCanvas(grids);
+        });
+
+        selection.forEach(x => {
+            x.addEventListener('click', () => {
+                clearCanvas(grids);
+            });
+        });
     };
 };
-   
-
-
 
 window.onload = changeSize(64);
