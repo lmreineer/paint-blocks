@@ -159,5 +159,120 @@ button:hover {
     cursor: pointer;
 }
 
+@media only screen and (max-width: 1882px) {
+    #main {
+        width: 52rem;
+        height: 42rem;
+    }
+
+    button {
+        width: 15rem;
+        height: 5.5rem;
+        font-size: 1.4rem;
+    }
+
+    #subText,
+    .default {
+        font-size: 1.5rem;
+    }
 
 
+    #colorPicker {
+        height: 6rem;
+        width: 6rem;
+    }
+}
+
+@media only screen and (max-width: 1397px) {
+    #main {
+        width: 42rem;
+        height: 32rem;
+    }
+
+    #colorPicker {
+        height: 6rem;
+        width: 6rem;
+    }
+
+    #subText,
+    .default {
+        font-size: 1.9rem;
+    }
+}
+
+@media only screen and (max-width: 1186px) {
+    #main {
+        width: 32rem;
+        height: 22rem;
+    }
+
+    #colorPicker {
+        height: 7rem;
+        width: 7rem;
+    }
+
+    #subText,
+    .default {
+        font-size: 1.7rem;
+    }
+}
+
+@media only screen and (max-width: 1071px) {
+    button {
+        margin-right: 2rem;
+        margin-left: 2rem;
+    }
+}
+
+@media only screen and (max-width: 902px) {
+   button,
+   #colorPicker {
+        width: 5rem;
+        height: 5.5rem;
+    }
+}
+
+@media only screen and (max-width: 681px) {
+    button,
+    #colorPicker {
+         width: 5rem;
+         height: 5.5rem;
+     }
+ }
+
+@media only screen and (max-height: 713px) {
+    #main {
+        width: 32rem;
+        height: 22rem;
+    }
+
+    .top-left-container {
+        position: relative;
+        margin-bottom: 2.3rem;
+    }
+
+    .drop-down {
+        position: relative;
+    }
+
+    #clearMode {
+        margin-bottom: -8rem;
+    }
+}
+
+@media only screen and (max-height: 541px) {
+    #main {
+        width: 32rem;
+        height: 22rem;
+    }
+}
+
+@media only screen and (max-height: 444px) {
+    #main {
+        position: relative;
+    }
+
+    #randomMode {
+        margin-bottom: -0.3rem;
+    }
+}
