@@ -14,7 +14,6 @@ body {
 }
 
 .all-container {
-    min-height: 100vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -23,26 +22,19 @@ body {
 .left-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 2rem;
-    margin-top: 1.5rem;
 }
 
 .right-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 2rem;
 }
 
 .top-left-container {
-    position: absolute;
+    margin-top: -4.2rem;
     top: 2.15rem;
     text-align: center;
-}
-
-#eraseMode {
-    margin-top: 1.5rem;
 }
 
 #main {
@@ -77,6 +69,7 @@ button:hover {
     transform: translateY(-0.1.5em);
     transition: 0.1s;
 }
+
 #colorPicker {
     border: none;
     background-color: transparent;
@@ -84,7 +77,6 @@ button:hover {
     height: 5rem;
     width: 5rem;
     cursor: pointer;
-    margin-top: 0.5rem;
 }
 
 #colorPicker::-webkit-color-swatch {
@@ -112,8 +104,7 @@ button:hover {
     text-align: center;
     user-select: none;
     width: 7rem;
-    position: absolute;
-    top: 1.90rem;
+    top: 1.80rem;
 }
 
 .selections-container {
@@ -159,147 +150,217 @@ button:hover {
     cursor: pointer;
 }
 
-@media only screen and (max-width: 1882px) {
-    #main {
-        width: 52rem;
-        height: 42rem;
+@media only screen and (max-width: 600px) {
+    .all-container {
+        min-height: 100vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .left-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
     }
 
-    button {
-        width: 15rem;
-        height: 5.5rem;
-        font-size: 1.4rem;
+    .right-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
     }
 
-    #subText,
-    .default {
-        font-size: 1.5rem;
-    }
-
-
-    #colorPicker {
-        height: 6rem;
-        width: 6rem;
-    }
-}
-
-@media only screen and (max-width: 1397px) {
-    #main {
-        width: 42rem;
-        height: 32rem;
-    }
-
-    #colorPicker {
-        height: 6rem;
-        width: 6rem;
-    }
-
-    #subText,
-    .default {
-        font-size: 1.9rem;
-    }
-}
-
-@media only screen and (max-width: 1186px) {
-    #main {
-        width: 32rem;
-        height: 22rem;
-        transition: 0.2s;
-
-    }
-
-    #colorPicker {
-        height: 7rem;
-        width: 7rem;
-        transition: 0.2s;
-    }
-
-    #subText,
-    .default {
-        font-size: 1.7rem;
-        transition: 0.2s;
-    }
-
-    #main {
-        box-shadow: #afafaf 0px 8px 35px 0px, #333333 0px 0px 0px 0.25px;
-    }
-}
-
-@media only screen and (max-width: 1071px) {
-    button {
-        margin-right: 2rem;
-        margin-left: 2rem;
-        transition: 0.2s;
-    }
-
-    #main {
-        box-shadow: #afafaf 0px 5px 30px 0px, #333333 0px 0px 0px 0.25px;
-    }
-}
-
-@media only screen and (max-width: 902px) {
-   button,
-   #colorPicker {
-        width: 5rem;
-        height: 5.5rem;
-        transition: 0.2s;
-    }
-
-    button {
-        width: 6.5rem;
-    }
-
-    #main {
-        box-shadow: #afafaf 0px 1px 25px 0px, #333333 0px 0px 0px 0.25px;
-    }
-}
-
-@media only screen and (max-width: 681px) {
-    button,
-    #colorPicker {
-         width: 5rem;
-         height: 5.5rem;
-         transition: 0.2s;
-     }
-
-     #main {
-        box-shadow: #afafaf 0px 0px 18px 0px, #333333 0px 0px 0px 0.25px;
-    }
- }
-
-@media only screen and (max-height: 713px) {
-    #main {
-        width: 32rem;
-        height: 22rem;
-    }
-
+    .drop-down,
     .top-left-container {
-        position: relative;
-        margin-bottom: 2.3rem;
+        position: absolute;
+        display: none;
+    }
+
+    #main {
+        display: grid;
+        box-shadow: #afafaf 0px 10px 36px 0px, #333333 0px 0px 0px 0.25px;
+        width: min(70vw, 100rem);
+        height: min(90vh, 100rem);
+        margin-inline: auto;
+    }
+    
+    button {
+        font-family: 'IBM Plex Sans Condensed', sans-serif;
+        letter-spacing: 0.3px;
+        height: 5.5rem;
+        width: min(50vw, 15rem);
+        padding: 1rem;
+        border: none;
+        margin: 0 2rem 0 2rem;
+        outline: transparent;
+        background-color: #d1d1d1;
+        border-radius: 0.8rem;
+        color: #333333;
+        font-size: 1.2rem;
+        cursor: pointer;
+        user-select: none;
+    }
+}
+
+
+@media only screen and (max-width: 320px) {
+    .all-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .left-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .right-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    #main {
+        display: grid;
+        box-shadow: #afafaf 0px 10px 36px 0px, #333333 0px 0px 0px 0.25px;
+        width: 16rem;
+        height: 25rem;
+    }
+    
+    button {
+        font-family: 'IBM Plex Sans Condensed', sans-serif;
+        letter-spacing: 0.3px;
+        width: 6rem;
+        height: 5.5rem;
+        padding: 0.5rem;
+        border: none;
+        outline: transparent;
+        background-color: #d1d1d1;
+        border-radius: 0.8rem;
+        color: #333333;
+        font-size: 1.2rem;
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    #colorPicker,
+    #subText,
+    .default {
+        visibility: hidden;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .all-container {
+        min-height: 100vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .left-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .right-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    #main {
+        display: grid;
+        box-shadow: #afafaf 0px 10px 36px 0px, #333333 0px 0px 0px 0.25px;
+        width: min(50vw, 100rem);
+        height: min(90vh, 100rem);
+        margin-inline: auto;
+    }
+    
+    button {
+        font-family: 'IBM Plex Sans Condensed', sans-serif;
+        letter-spacing: 0.3px;
+        height: 5.5rem;
+        width: min(20vw, 15rem);
+        padding: 1rem;
+        border: none;
+        outline: transparent;
+        background-color: #d1d1d1;
+        border-radius: 0.8rem;
+        color: #333333;
+        font-size: 1.2rem;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    #subText {
+        top: -3rem;
+    }
+}
+
+@media only screen and (max-height: 480px) {
+    .all-container {
+        min-height: 100vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .left-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .right-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    #main {
+        display: grid;
+        box-shadow: #afafaf 0px 10px 36px 0px, #333333 0px 0px 0px 0.25px;
+        height: 15rem;
+        width: 25rem;
+        margin: 2rem;
+    }
+    
+    button {
+        font-family: 'IBM Plex Sans Condensed', sans-serif;
+        letter-spacing: 0.3px;
+        height: 5.5rem;
+        width: 8rem;
+        padding: 1rem;
+        border: none;
+        outline: transparent;
+        background-color: #d1d1d1;
+        border-radius: 0.8rem;
+        color: #333333;
+        font-size: 1.2rem;
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    #colorPicker,
+    #subText,
+    .default {
+        visibility: hidden;
     }
 
     .drop-down {
-        position: relative;
+        position: absolute;
     }
 
-    #clearMode {
-        margin-bottom: -8rem;
-    }
-}
-
-@media only screen and (max-height: 541px) {
-    #main {
-        width: 32rem;
-        height: 22rem;
-    }
-}
-
-@media only screen and (max-height: 444px) {
-    #main {
-        position: relative;
-    }
-
-    #randomMode {
-        margin-bottom: -0.3rem;
-    }
+    .top-left-container {
+        position: absolute;
+    }   
 }
