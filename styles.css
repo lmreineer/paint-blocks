@@ -291,7 +291,7 @@ button:hover {
         font-family: 'IBM Plex Sans Condensed', sans-serif;
         letter-spacing: 0.3px;
         height: 5.5rem;
-        width: min(20vw, 15rem);
+        width: min(15vw, 15rem);
         padding: 1rem;
         border: none;
         outline: transparent;
@@ -333,17 +333,16 @@ button:hover {
     #main {
         display: grid;
         box-shadow: #afafaf 0px 10px 36px 0px, #333333 0px 0px 0px 0.25px;
-        height: 15rem;
-        width: 25rem;
-        margin: 2rem;
+        width: min(50vw, 100rem);
+        height: min(80vh, 100rem);
+        margin-inline: auto;
     }
     
     button {
         font-family: 'IBM Plex Sans Condensed', sans-serif;
         letter-spacing: 0.3px;
         height: 5.5rem;
-        width: 8rem;
-        padding: 1rem;
+        width: min(15vw, 15rem);
         border: none;
         outline: transparent;
         background-color: #d1d1d1;
