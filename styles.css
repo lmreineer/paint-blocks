@@ -181,8 +181,8 @@ button:hover {
     #main {
         display: grid;
         box-shadow: #afafaf 0px 10px 36px 0px, #333333 0px 0px 0px 0.25px;
-        width: min(70vw, 100rem);
-        height: min(90vh, 100rem);
+        width: min(45vw, 100rem);
+        height: min(35vh, 100rem);
         margin-inline: auto;
     }
     
@@ -190,10 +190,9 @@ button:hover {
         font-family: 'IBM Plex Sans Condensed', sans-serif;
         letter-spacing: 0.3px;
         height: 5.5rem;
-        width: min(50vw, 15rem);
-        padding: 1rem;
+        width: 6rem;
+        padding: 0rem;
         border: none;
-        margin: 0 2rem 0 2rem;
         outline: transparent;
         background-color: #d1d1d1;
         border-radius: 0.8rem;
@@ -222,6 +221,11 @@ button:hover {
         flex-direction: row;
         align-items: center;
     }
+
+    .top-left-container {
+        position: absolute;
+        display: none;
+    }
     
     #main {
         display: grid;
@@ -245,7 +249,7 @@ button:hover {
         cursor: pointer;
         user-select: none;
     }
-    
+
     #colorPicker,
     #subText,
     .default {
@@ -279,7 +283,7 @@ button:hover {
         display: grid;
         box-shadow: #afafaf 0px 10px 36px 0px, #333333 0px 0px 0px 0.25px;
         width: min(50vw, 100rem);
-        height: min(90vh, 100rem);
+        height: min(80vh, 100rem);
         margin-inline: auto;
     }
     
