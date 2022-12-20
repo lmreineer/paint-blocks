@@ -2,7 +2,7 @@
   "name": "paint-blocks",
   "version": "1.0.0",
   "description": "Online demo: https://lmreineer.github.io/paint-blocks/",
-  "main": "index.js",
+  "main": "functions.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
