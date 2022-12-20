@@ -1,0 +1,24 @@
+{
+  "name": "paint-blocks",
+  "version": "1.0.0",
+  "description": "Online demo: https://lmreineer.github.io/paint-blocks/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lmreineer/paint-blocks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lmreineer/paint-blocks/issues"
+  },
+  "homepage": "https://github.com/lmreineer/paint-blocks#readme",
+  "devDependencies": {
+    "eslint": "^8.30.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  }
+}
